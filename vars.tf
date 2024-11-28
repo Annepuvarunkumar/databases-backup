@@ -6,7 +6,7 @@ variable "db_engine" {
 
 variable "db_engine_version" {
   description = "The version of the database engine"
-  default     = "10.6.10"
+  default     = "10.4.29"
 }
 
 variable "db_username" {
