@@ -58,7 +58,7 @@ resource "aws_iam_policy_attachment" "backup_role_policy_attachment" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup"
 }
 
- Backup Selection for RDS Database
+Backup Selection for RDS Database
 resource "aws_backup_selection" "rds_backup_selection" {
   name           = "rds-backup-selection"
   iam_role_arn   = aws_iam_role.backup_role.arn
