@@ -62,7 +62,7 @@ resource "aws_iam_policy_attachment" "backup_role_policy_attachment" {
 resource "aws_backup_selection" "rds_backup_selection" {
   name           = "rds-backup-selection"
   iam_role_arn   = aws_iam_role.backup_role.arn
-  backup_plan_id = aws_backup_plan.backup_plan.id
+  plan_id        = aws_backup_plan.backup_plan.id
 
   resources = [aws_db_instance.my_database.arn]
 }

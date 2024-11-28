@@ -29,6 +29,12 @@ variable "backup_plan_name" {
   default     = "rds-backup-plan"
 }
 
+variable "backup_plan_id" {
+  type = string
+  default = "a31c3508-4086-430d-93d2-112e5bd21ee7"
+}
+
+
 variable "retention_days" {
   description = "Number of days to retain the backups"
   default     = 7
