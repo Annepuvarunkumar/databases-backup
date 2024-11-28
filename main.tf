@@ -9,7 +9,7 @@ resource "aws_db_instance" "my_database" {
   password                 = var.db_password
   publicly_accessible      = true
   backup_retention_period  = 7  # Retain automated backups for 7 days
-  skip_final_snapshot      = false  # Retain data when deleting
+  skip_final_snapshot      = true  # Retain data when deleting
   storage_encrypted        = true  # Enable encryption
 }
 
