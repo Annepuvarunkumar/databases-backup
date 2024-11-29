@@ -17,7 +17,7 @@ output "backup_plan_id" {
   value       = aws_backup_plan.backup_plan.id
 }
 
-output "iam_role_arn" {
-  description = "The ARN of the IAM role used for backups"
-  value       = aws_iam_role.backup_role.arn
-}
+#output "iam_role_arn" {
+#  description = "The ARN of the IAM role used for backups"
+#  value       = aws_iam_role.backup_role.arn
+#}
