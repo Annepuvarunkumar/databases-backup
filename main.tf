@@ -33,37 +33,37 @@ resource "aws_backup_plan" "backup_plan" {
   }
 }
 
-# IAM Role for AWS Backup
-resource "aws_iam_role" "backup_role" {
-  name = "aws-backup-service-role"
-
-  assume_role_policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Effect = "Allow"
-        Principal = {
-          Service = "backup.amazonaws.com"
-        }
-        Action = "sts:AssumeRole"
-      }
-    ]
-  })
-}
-
-# Attach Policy to IAM Role
-resource "aws_iam_policy_attachment" "backup_role_policy_attachment" {
-  name       = "backup-role-policy"
-  roles      = [aws_iam_role.backup_role.name]
-  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup"
-}
-
-#Backup Selection for RDS Database
-resource "aws_backup_selection" "rds_backup_selection" {
-  name           = "rds-backup-selection"
-  iam_role_arn   = aws_iam_role.backup_role.arn
-  plan_id        = aws_backup_plan.backup_plan.id
-
-  resources = [aws_db_instance.my_database.arn]
-}
-
+## IAM Role for AWS Backup
+#resource "aws_iam_role" "backup_role" {
+#  name = "aws-backup-service-role"
+#
+#  assume_role_policy = jsonencode({
+#    Version = "2012-10-17"
+#    Statement = [
+#      {
+#        Effect = "Allow"
+#        Principal = {
+#          Service = "backup.amazonaws.com"
+#        }
+#        Action = "sts:AssumeRole"
+#      }
+#    ]
+#  })
+#}
+#
+## Attach Policy to IAM Role
+#resource "aws_iam_policy_attachment" "backup_role_policy_attachment" {
+#  name       = "backup-role-policy"
+#  roles      = [aws_iam_role.backup_role.name]
+#  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup"
+#}
+#
+##Backup Selection for RDS Database
+#resource "aws_backup_selection" "rds_backup_selection" {
+#  name           = "rds-backup-selection"
+#  iam_role_arn   = aws_iam_role.backup_role.arn
+#  plan_id        = aws_backup_plan.backup_plan.id
+#
+#  resources = [aws_db_instance.my_database.arn]
+#}
+#
